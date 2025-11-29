@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Preview Example</title>
+  <style>
+    #image {
+      width: 400px;
+      height: 300px;
+      border: 2px solid black;
+      text-align: center;
+      line-height: 300px;
+      background-size: cover;
+    }
+    img {
+      width: 100px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="image">Hover over an image below to display here.</div>
+
+  <img src="pic1.jpg" alt="Picture 1" onmouseover="upDate(this)" onmouseout="undo()">
+  <img src="pic2.jpg" alt="Picture 2" onmouseover="upDate(this)" onmouseout="undo()">
+  <img src="pic3.jpg" alt="Picture 3" onmouseover="upDate(this)" onmouseout="undo()">
+
+  <script>
+    function upDate(previewPic) {
+      console.log("Event triggered!");
+      console.log("Alt text: " + previewPic.alt);
+      console.log("Source: " + previewPic.src);
+
+      document.querySelector('#image').innerHTML = previewPic.alt;
+      document.querySelector('#image').style.backgroundImage = "url('" + previewPic.src + "')";
+    }
+
+    function undo() {
+      document.querySelector('#image').style.backgroundImage = "url('')";
+      document.querySelector('#image').innerHTML = "Hover over an image below to display here.";
+    }
+  </script>
+</body>
+</html>
