@@ -1,0 +1,21 @@
+/* Default (small screens) */
+body {
+  background-image: url("images/small.jpg");
+  background-size: cover;
+}
+
+/* Medium screens (≥600px) */
+@media screen and (min-width: 600px) {
+  body {
+    background-image: url("images/medium.jpg");
+    background-size: cover;
+  }
+}
+
+/* Large screens (≥900px) */
+@media screen and (min-width: 900px) {
+  body {
+    background-image: url("images/large.jpg");
+    background-size: cover;
+  }
+}
