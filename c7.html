@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Photo Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .gallery img {
+      width: 200px;
+      height: auto;
+      border: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .gallery img:focus {
+      outline: none;
+      border-color: blue;
+    }
+  </style>
+</head>
+<body onload="initGallery()">
+  <h1>Interactive Photo Gallery</h1>
+  <div class="gallery">
+    <img src="images/mountain.jpg" alt="Snowy mountain peak under blue sky">
+    <img src="images/beach.jpg" alt="Sunny beach with waves and sand">
+    <img src="images/forest.jpg" alt="Dense green forest with tall trees">
+    <img src="images/city.jpg" alt="Modern city skyline at sunset">
+    <img src="images/desert.jpg" alt="Golden desert dunes under clear sky">
+    <img src="images/lake.jpg" alt="Calm lake surrounded by pine trees">
+  </div>
+
+  <script>
+    function initGallery() {
+      console.log("Page loaded – initGallery triggered");
+      const images = document.querySelectorAll('.gallery img');
+
+      // Loop through each image
+      for (let i = 0; i < images.length; i++) {
+        images[i].setAttribute("tabindex", "0"); // Add tabindex for keyboard access
+
+        // Mouse events
+        images[i].addEventListener("mouseover", function() {
+          this.style.borderColor = "red";
+          console.log("Mouseover event triggered on image " + (i+1));
+        });
+        images[i].addEventListener("mouseleave", function() {
+          this.style.borderColor = "transparent";
+          console.log("Mouseleave event triggered on image " + (i+1));
+        });
+
+        // Focus events (keyboard navigation)
+        images[i].addEventListener("focus", function() {
+          this.style.borderColor = "green";
+          console.log("Focus event triggered on image " + (i+1));
+        });
+        images[i].addEventListener("blur", function() {
+          this.style.borderColor = "transparent";
+          console.log("Blur event triggered on image " + (i+1));
+        });
+      }
+    }
+  </script>
+</body>
+</html>
