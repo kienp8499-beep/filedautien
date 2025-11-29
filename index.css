@@ -1,0 +1,33 @@
+div {
+  width: 100%;          /* full width on mobile */
+  display: block;       /* stack vertically */
+  margin: 10px 0;       /* spacing between divs */
+}
+
+img {
+  width: 100%;          /* scale to fit div */
+  height: auto;         /* keep aspect ratio */
+  max-height: none;     /* no restriction yet */
+}
+@media all and (min-width: 772px) {
+  div {
+    width: 45%;          /* two divs side by side */
+    display: inline-block; /* allow divs to sit next to each other */
+    vertical-align: top;   /* align neatly */
+    margin: 2%;           /* spacing between divs */
+  }
+
+  img {
+    max-height: 30vh;     /* 30% of viewport height */
+    width: 100%;          /* still responsive */
+    object-fit: cover;    /* keep image contained */
+  }
+}
+@media all and (min-width: 998px) {
+  div {
+    width: 30%;           /* three divs side by side */
+    display: inline-block;
+    vertical-align: top;
+    margin: 1.5%;         /* tighter spacing */
+  }
+}
